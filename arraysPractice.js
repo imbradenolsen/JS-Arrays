@@ -91,11 +91,18 @@ var nums = [1,2,3,6,22,98,45,23,22,12];
 var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
-
-
-
   //Code Here
-
+  function divider (numbersArray){
+    var evens = []
+    var odds = []
+    for(i = 0; i < numbersArray.length; i++){
+      if(numbersArray[i]%2 === 0){
+        evens.push(numbersArray[i])
+      } else if(numbersArray[i]%2 !== 0){
+        odds.push(numbersArray[i])
+      }
+    } return[evens,odds]
+  }
 
 //Next Problem
 
@@ -109,7 +116,10 @@ var getRandomArbitrary = function() {
 // Your job is to write a function named finder that will get a random number (by invoking getRandomArbitrary), then loop through the array (that will be passed in as a parameter) to see if that random number is in the array. If it is, return true, if it's not, return false
 
   //Code Here
-
+  function finder(arr){
+    var rand = getRandomArbitrary();
+    return arr.indexOf(rand) === -1 ? false: true;
+  } 
 
 
 
@@ -133,6 +143,21 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 */
 
   //Code Here
+  function removeItem(myGroceryList, item) {
+    for(var i = 0; i < myGroceryList.length; i++) {
+      if(myGroceryList[i] === item) {
+        myGroceryList.splice(i, 1);
+        i--;
+      }
+    }
+    return myGroceryList;
+  }
+
+  function addItem(myGroceryList, item){
+    for(var i = 0; i < myGroceryList.length; i++){
+    } myGroceryList.push(item);
+    return myGroceryList; 
+  };
 
 //removeItem(myGroceryList, 'chips') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //addItem(myGroceryList, 'Jerky') --> ['pizza', 'hotpockets', 'MtnDew', 'corndogs', 'Jerky'];
@@ -146,7 +171,13 @@ var myGroceryList = ['chips', 'pizza', 'hotpockets', 'MtnDew', 'corndogs'];
 //Write a function called maker that creates an array, fills that array with numbers from 1 to 215, then returns the array.
 
   //Code Here
-
+function maker(){
+  var arr = [];
+  for(var i = 1; i <= 215; i++){
+    arr.push(i)
+  }
+  return arr
+} 
 
 
 //Next Problem
@@ -157,8 +188,15 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-
-
+function addTen(arr){
+  var newArray = []
+  for(var i = 0; i < arr.length; i++){
+    newArray.push(Number(arr[i]))
+    newArray[i] += 10
+  }
+  return newArray;
+}
+  
 
 //Next Problem
 
@@ -178,7 +216,9 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-
+// function longer(arr1, arr2){
+  
+// }
 
 /*
 As a continuation of the previous problem, write another function called 'both'.
