@@ -92,18 +92,12 @@ var numbersArray = [1,2,34,54,55,34,32,11,19,17,54,66,13];
 //Write a function called divider that is given one argument, numbersArray.
 //Have divider return an Array with the first item in the array being the evens array (all the even values from numbersArray) and the second item in the Array being the odds array (all the odd values from numbersArray).
   //Code Here
-  function divider (numbersArray){
-    var evens = []
-    var odds = []
-    for(i = 0; i < numbersArray.length; i++){
-      if(numbersArray[i]%2 === 0){
-        evens.push(numbersArray[i])
-      } else if(numbersArray[i]%2 !== 0){
-        odds.push(numbersArray[i])
-      }
-    } return[evens,odds]
+  const divider = array => {
+    var odd = []
+    var even = []
+    array.map(x => x % 2 !== 0 ? odd.push(x) : even.push(x))
+    return [even, odd]
   }
-
 //Next Problem
 
 
@@ -188,10 +182,10 @@ var numbers = [5, '9', 16, 19, '25', '34', 48];
 //array after adding ten to each item in numbers. *Verify your answer is correct. --> [15, 19, 26, 29, 35, 44, 58]
 
   //Code Here
-function addTen(arr){
+function addTen(numbers){
   var newArray = []
-  for(var i = 0; i < arr.length; i++){
-    newArray.push(Number(arr[i]))
+  for(var i = 0; i < numbers.length; i++){
+    newArray.push(Number(numbers[i]))
     newArray[i] += 10
   }
   return newArray;
@@ -216,9 +210,13 @@ for(var i = 0; i < num2; i++){
 //Write a function called 'longer' that is given arr1 and arr2 as it's only arguments. Return the array which is longest.
 
   //Code Here
-// function longer(arr1, arr2){
-  
-// }
+function longer(arr1, arr2){
+  if(arr1.length>arr2.length){
+    return arr
+  } else {
+    return arr2
+  }
+}
 
 /*
 As a continuation of the previous problem, write another function called 'both'.
@@ -231,7 +229,25 @@ Example: var arr1 = [1,2,3,4]; var arr2 = [2,4,5,6]; newArray // [2,4]
 */
 
   //Code Here
+  function both(arr1, arr2){
+    var longer
+    var shorter
+    var newArray = []
+   if(arr1.length >= arr2.length){
+     longer = arr1
+     shorter = arr2
+   } else {
+     longer = arr2
+     shorter = arr1
+   }
 
+   for (var i = 0; i < longer.length; i++){
+    if(shorter.indexOf(longer[i]) !== -1){
+       newArray.push(longer[i]) 
+    } 
+   }
+   return newArray
+  }
 
 
 
@@ -265,19 +281,19 @@ var colt = {
     position: 'Everything really',
     spiritAnimal: 'Young Male Horse'
 };
-
+//[tyler, cahlan, ryan, colt]
 /*Above you're given an empty array with four objects. Fill the devMountainEmployees
 array with those four objects. After that console.log the length of the Array and make
 sure that it's equal to 4. */
 
   //Code Here
-
+devMountainEmployees.push(tyler, cahlan, ryan, colt)
+console.log(devMountainEmployees.length)
 /*Now let's say Cahlan has a mental breakdown and has to take a leave of absence to 'find himself'.
 Loop through your devMountainEmployees until you find cahlan, then remove him from the array.*/
 
   //Code Here
-
-
+devMountainEmployees.splice(1,1)
 
 
 //NEXT PROBLEM
@@ -288,7 +304,8 @@ of Data is to have an Array full of objects. */
 
 //Create an empty array called users.
 
-  //Code Here
+//Code Here
+var users = []
 
 /*Now add three user objects to your users array. Each user object should contain the
 following properties. name, email, password, username.*/
@@ -302,7 +319,9 @@ var user1 = {
 };
 
 //Your Code Here
-
+users.push({name: 'Tyler McGinnis', email: 'tylermcginnis33@gmail.com', password: 'iLoveJavaScript', username: 'infiniateLoop'},
+{name: 'Braden', email: 'email@email.com', password: 'cookies', username: 'bradeno12'},
+{name: 'Dan', email: 'email@email.com', password: 'harry potter', username: 'danthemanbigdanmoney'})
 /*Now you have a very common data structure. Twitter is a good use case.
 It's easy to imagine that your followers list on Twitter is an Array full or objects
 and those objects contain properties about the specific person you follow.*/
@@ -312,5 +331,6 @@ objects until you find Tyler's account (use tylermcginnis33@gmail.com to find hi
 Once you find the particular index he's located in, delete him from the array.*/
 
   //Code Here
-
+users.indexOf('tylermcginnis33@gmail.com')
+users.splice(0,1)
 //The activity we just did is very much how data works in 'the real world'.
